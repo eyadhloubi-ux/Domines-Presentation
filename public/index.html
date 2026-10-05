@@ -1,0 +1,1022 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#020A2B">
+<meta name="description" content="رابطة Domains — مدرّجات مختلفة، روح رياضية واحدة">
+<link rel="icon" type="image/webp" href="assets/domains.webp">
+<title>رابطة Domains</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Changa:wght@500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap">
+<style>
+/* Layout: full-screen vertical deck, one idea per slide, scroll-snap; navy stadium night with Domains blues, Ahli red used sparingly */
+:root{
+  --ink:#020A2B;
+  --ocean:#00175A;
+  --blue:#0616C4;
+  --violet:#8042EB;
+  --accent:#7B89FF;
+  --gold:#D6AE4E;
+  --c-ahli:#E1252C;
+  --c-hur:#1FA35B;
+  --c-shb:#2F86FF;
+  --paper:#EEF1FF;
+  --muted:#9EA8DA;
+  --line:rgba(158,168,218,.18);
+  --glass:rgba(10,26,96,.42);
+  --display:"Changa","Tajawal","Segoe UI",Tahoma,sans-serif;
+  --body:"Tajawal","Segoe UI",Tahoma,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--ink);color:var(--paper);font-family:var(--body);font-size:16px;line-height:1.7;overflow:hidden}
+#deck{height:100%;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;scroll-behavior:smooth;overscroll-behavior:contain}
+.slide{position:relative;min-height:100%;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;padding-block:72px 96px;padding-inline:clamp(16px,5vw,72px);overflow:hidden;isolation:isolate}
+.slide::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(1000px 620px at 80% -12%,rgba(6,22,196,.38),transparent 62%),radial-gradient(760px 480px at 0% 112%,rgba(128,66,235,.14),transparent 60%),linear-gradient(180deg,var(--ink),var(--ocean) 150%)}
+.wrap{width:100%;max-width:1180px;min-width:0}
+.eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.06em;color:var(--muted)}
+.eyebrow b{font-variant-numeric:tabular-nums;color:var(--accent);font-weight:700}
+.eyebrow::after{content:"";flex:0 0 48px;height:2px;background:linear-gradient(90deg,transparent,var(--accent))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.2}
+h2{font-size:clamp(30px,4.6vw,56px);font-weight:800;margin-block:10px 22px}
+h3{font-size:clamp(18px,1.9vw,22px);font-weight:700}
+p{margin:0}
+.lead{font-size:clamp(17px,1.7vw,21px);color:var(--paper);max-width:62ch}
+.muted{color:var(--muted)}
+.red{color:var(--accent)}
+.latin{font-family:"Changa",sans-serif;letter-spacing:.02em}
+.grid{display:grid;gap:clamp(14px,2vw,24px)}
+.panel{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:clamp(16px,2vw,24px);backdrop-filter:blur(6px);min-width:0}
+ul.clean{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ul.clean li{position:relative;padding-inline-start:20px}
+ul.clean li::before{content:"";position:absolute;inset-inline-start:0;top:.72em;width:8px;height:8px;border-radius:2px;background:var(--blue);box-shadow:0 0 0 3px rgba(6,22,196,.25)}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.04em;padding:4px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.tag.hot{border-color:rgba(123,137,255,.5);color:#DDE2FF;background:rgba(6,22,196,.35)}
+
+/* reveal system: visible at rest, animates when slide becomes active */
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.6)}70%{transform:scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+@keyframes flip{from{opacity:0;transform:perspective(700px) rotateX(-80deg)}to{opacity:1;transform:none}}
+@keyframes draw{from{stroke-dashoffset:var(--len,1000)}to{stroke-dashoffset:0}}
+.on .rv{animation:rise .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*90ms + 120ms)}
+.on .pp{animation:pop .7s cubic-bezier(.2,.8,.3,1.2) both;animation-delay:calc(var(--i,0)*110ms + 200ms)}
+.on .fl{animation:flip .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*90ms + 200ms);transform-origin:top}
+.on .si{animation:slideIn .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*90ms + 150ms)}
+.on .dr{stroke-dasharray:var(--len,1000);animation:draw 1.8s ease both;animation-delay:calc(var(--i,0)*150ms + 200ms)}
+
+/* ===== cover ===== */
+.cover .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);align-items:center;gap:clamp(20px,4vw,60px)}
+.cover h1{font-size:clamp(40px,7vw,92px);font-weight:800;line-height:1.05}
+.cover h1 .l2{display:block;font-size:.5em;margin-top:14px;color:var(--muted);font-weight:600}
+.cover h1 .l2 span{color:var(--paper)}
+.cover .sub{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.badge-hero{width:min(100%,340px);justify-self:center;filter:drop-shadow(0 30px 60px rgba(6,22,196,.55))}
+.beam{position:absolute;top:-20%;width:38vw;height:140%;z-index:-1;background:linear-gradient(180deg,rgba(238,241,255,.16),transparent 70%);clip-path:polygon(45% 0,55% 0,100% 100%,0 100%);transform-origin:50% 0;animation:sweep 7s ease-in-out infinite alternate;pointer-events:none}
+.beam.b1{inset-inline-start:0}
+.beam.b2{inset-inline-end:0;animation-delay:-3.5s}
+@keyframes sweep{from{transform:rotate(-18deg)}to{transform:rotate(18deg)}}
+.crowd{position:absolute;inset-inline:0;bottom:0;height:90px;display:flex;align-items:flex-end;gap:3px;padding-inline:8px;z-index:-1;opacity:.6;pointer-events:none}
+.crowd i{flex:1;height:30%;border-radius:6px 6px 0 0;background:linear-gradient(180deg,var(--blue),transparent);animation:wave 2.4s ease-in-out infinite;animation-delay:calc(var(--k)*-80ms)}
+.crowd i:nth-child(4n){background:linear-gradient(180deg,var(--violet),transparent)}
+@keyframes wave{0%,100%{height:22%}50%{height:78%}}
+.on .badge-hero .shield{stroke-dasharray:760;animation:draw 2s ease both}
+.on .badge-hero .fillin{animation:fadeIn 1s ease both .9s}
+.on .badge-hero .arc{stroke-dasharray:90;animation:draw 1s ease both 1.4s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ===== who ===== */
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,24px);margin-top:10px}
+.trio .panel{display:flex;flex-direction:column;gap:12px;padding:clamp(20px,2.4vw,30px);font-size:clamp(16px,1.4vw,18px)}
+.trio .panel:first-child{background:linear-gradient(160deg,rgba(6,22,196,.5),var(--glass) 60%);border-color:rgba(123,137,255,.45)}
+.trio .ico{font-family:var(--display);font-weight:800;font-size:15px;color:var(--accent);font-variant-numeric:tabular-nums}
+.trio h3{font-size:clamp(22px,2.4vw,30px)}
+.who .big{font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,50px);line-height:1.25}
+.who .big em{font-style:normal;color:var(--accent)}
+.who .defs{display:grid;gap:16px;margin-top:22px}
+.vm{display:grid;gap:16px}
+.vm .panel h3{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.vm .panel h3::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.rings{position:absolute;inset-inline-start:8%;top:50%;width:0;height:0;z-index:-1;pointer-events:none}
+.rings i{position:absolute;left:-30px;top:-30px;width:60px;height:60px;border-radius:50%;border:2px solid rgba(128,66,235,.5);animation:ring 4.8s ease-out infinite;animation-delay:calc(var(--k)*-1.2s)}
+@keyframes ring{from{transform:scale(1);opacity:.9}to{transform:scale(14);opacity:0}}
+
+/* ===== charter ===== */
+.charter .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.4fr);gap:clamp(20px,4vw,56px);align-items:start}
+.charter .rules{display:grid;gap:12px;margin-top:6px}
+.charter .rules div{display:flex;gap:12px;align-items:flex-start}
+.charter .rules div b{flex:0 0 auto;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:rgba(123,137,255,.14);color:var(--accent);font-family:var(--display);font-size:15px}
+.scroll{position:relative;border-radius:18px;padding:clamp(18px,2.4vw,30px);background:linear-gradient(180deg,rgba(238,241,255,.06),rgba(238,241,255,.02));border:1px solid var(--line)}
+.scroll .head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.values{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 22px}
+.values li{display:flex;gap:12px;align-items:baseline;padding-block:8px;border-bottom:1px dashed var(--line);font-weight:500}
+.values li span{font-family:var(--display);font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;flex:0 0 auto}
+.seal{position:absolute;inset-inline-end:-14px;bottom:-18px;width:92px;height:92px;border-radius:50%;display:grid;place-items:center;text-align:center;font-family:var(--display);font-weight:800;font-size:13px;line-height:1.2;color:#fff;background:radial-gradient(circle at 35% 30%,#6E7DFF,var(--accent) 55%,#0B1570);box-shadow:0 10px 30px rgba(123,137,255,.45),inset 0 0 0 4px rgba(255,255,255,.25);transform:rotate(-12deg)}
+@keyframes stamp{0%{opacity:0;transform:scale(2.4) rotate(-30deg)}60%{opacity:1;transform:scale(.92) rotate(-10deg)}100%{transform:scale(1) rotate(-12deg)}}
+.on .seal{animation:stamp .6s cubic-bezier(.3,.8,.3,1) both 1.6s}
+
+/* ===== membership ===== */
+.member .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.card3d{perspective:1200px;width:min(100%,400px);aspect-ratio:1.586;justify-self:center}
+.card3d .in{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:cardspin 9s ease-in-out infinite}
+@keyframes cardspin{0%,38%{transform:rotateY(0) rotateX(6deg)}50%,88%{transform:rotateY(180deg) rotateX(6deg)}100%{transform:rotateY(360deg) rotateX(6deg)}}
+.face{position:absolute;inset:0;border-radius:18px;backface-visibility:hidden;padding:18px 20px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.face.front{background:linear-gradient(135deg,var(--blue),var(--ocean) 60%,#03082a)}
+.face.front::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.18) 45%,transparent 60%);animation:shine 4.5s ease-in-out infinite}
+@keyframes shine{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.face.back{transform:rotateY(180deg);background:linear-gradient(135deg,#1a0f4a,var(--violet) 140%)}
+.face .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.face .no{font-family:var(--display);font-weight:800;font-size:clamp(26px,3.4vw,38px);letter-spacing:.12em;font-variant-numeric:tabular-nums}
+.face .stripe{height:6px;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--violet))}
+.face small{font-size:12px;color:rgba(238,241,255,.75)}
+.acc{display:grid;gap:10px}
+.acc div{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.08);font-weight:500;font-size:14px}
+.acc div i{width:8px;height:8px;border-radius:50%;background:#7CF0B0;box-shadow:0 0 10px #7CF0B0}
+.gets{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.steps{position:relative;display:grid;gap:14px;counter-reset:s}
+.steps::before{content:"";position:absolute;inset-inline-start:21px;top:22px;bottom:22px;width:2px;background:var(--line)}
+.steps::after{content:"";position:absolute;inset-inline-start:21px;top:22px;width:2px;height:0;background:linear-gradient(180deg,var(--blue),var(--accent))}
+.on .steps::after{animation:fillv 1.8s ease both .4s}
+@keyframes fillv{to{height:calc(100% - 44px)}}
+.step{position:relative;display:flex;gap:16px;align-items:flex-start}
+.step .n{flex:0 0 44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:18px;background:var(--ink);border:2px solid var(--blue);z-index:1}
+.step:last-child .n{border-color:var(--accent)}
+.step p{font-size:15px}
+
+/* ===== ritual ===== */
+.ritual .wrap{text-align:center;display:grid;justify-items:center}
+.ritual h2{margin-bottom:10px}
+.path4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;width:100%;margin-block:34px 30px;position:relative}
+.path4 .st{position:relative;padding:18px 12px;border-radius:16px;background:var(--glass);border:1px solid var(--line);font-family:var(--display);font-weight:600;font-size:clamp(15px,1.5vw,18px)}
+.path4 .st small{display:block;font-family:var(--body);font-weight:500;color:var(--muted);font-size:13px;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.path4 .st.final{background:linear-gradient(135deg,rgba(123,137,255,.25),rgba(6,22,196,.35));border-color:rgba(123,137,255,.5)}
+.sig{width:min(100%,520px);height:auto;margin-top:6px}
+.sig path{fill:none;stroke:var(--paper);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.sig line{stroke:var(--line);stroke-width:2}
+.torch{position:absolute;bottom:0;width:160px;height:70%;z-index:-1;background:radial-gradient(60% 40% at 50% 100%,rgba(123,137,255,.35),transparent 70%);animation:flicker 2.6s ease-in-out infinite;pointer-events:none}
+.torch.t1{inset-inline-start:4%}.torch.t2{inset-inline-end:4%;animation-delay:-1.2s}
+@keyframes flicker{0%,100%{opacity:.6;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.12)}}
+.transform{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;font-family:var(--display);font-size:clamp(20px,2.6vw,30px);font-weight:700;margin-top:18px}
+.transform .arrow{width:70px;height:2px;background:linear-gradient(90deg,var(--accent),var(--blue));position:relative}
+.transform .arrow::after{content:"";position:absolute;left:-2px;top:-5px;border:6px solid transparent;border-right-color:var(--accent)}
+
+/* ===== e-league ===== */
+.eleague .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,320px);gap:clamp(24px,4vw,64px);align-items:center}
+.phone{justify-self:center;width:min(100%,270px);aspect-ratio:9/18.5;border-radius:38px;padding:12px;background:#050818;border:2px solid rgba(238,241,255,.2);box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 0 8px rgba(6,22,196,.15)}
+.screen{position:relative;width:100%;height:100%;border-radius:28px;overflow:hidden;background:var(--ocean)}
+.feed{position:absolute;inset:0;display:flex;flex-direction:column;animation:feed 12s cubic-bezier(.7,0,.3,1) infinite}
+@keyframes feed{0%,20%{transform:translateY(0)}25%,45%{transform:translateY(-100%)}50%,70%{transform:translateY(-200%)}75%,95%{transform:translateY(-300%)}100%{transform:translateY(-400%)}}
+.reel{flex:0 0 100%;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;gap:6px}
+.reel:nth-child(1),.reel:nth-child(5){background:linear-gradient(160deg,#2B3BE8,#0A1466 60%,var(--ink))}
+.reel:nth-child(2){background:linear-gradient(160deg,var(--blue),var(--ink))}
+.reel:nth-child(3){background:linear-gradient(160deg,var(--violet),var(--ink))}
+.reel:nth-child(4){background:linear-gradient(160deg,#3A1E8C,var(--ink))}
+.reel .play{position:absolute;top:42%;left:50%;width:62px;height:62px;margin:-31px 0 0 -31px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center;animation:pulse 1.6s ease-in-out infinite}
+.reel .play::after{content:"";border-style:solid;border-width:12px 0 12px 20px;border-color:transparent transparent transparent #fff;margin-left:5px}
+@keyframes pulse{50%{transform:scale(1.12)}}
+.reel b{font-family:var(--display);font-size:20px}
+.reel small{color:rgba(238,241,255,.75);font-size:12px}
+.reel .side{position:absolute;inset-inline-end:14px;bottom:80px;display:grid;gap:14px}
+.reel .side i{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.2)}
+.live{position:absolute;top:14px;inset-inline-start:14px;z-index:2;font-size:11px;font-weight:700;padding:2px 10px;border-radius:6px;background:var(--blue);letter-spacing:.08em;animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:.5}}
+.content-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}
+.content-list .panel{padding:14px 16px;display:flex;gap:12px;align-items:flex-start;font-weight:500}
+.content-list .panel svg{flex:0 0 26px;width:26px;height:26px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.content-list .panel.star{border-color:rgba(123,137,255,.45);background:rgba(123,137,255,.1)}
+
+/* ===== events ===== */
+.events .main{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:center;padding:22px 26px;border-radius:20px;background:linear-gradient(120deg,rgba(6,22,196,.5),rgba(2,10,43,.3));border:1px solid rgba(6,22,196,.6);margin-bottom:22px;overflow:hidden}
+.events .main svg{width:120px;height:78px}
+.events .main svg *{fill:none;stroke:rgba(238,241,255,.8);stroke-width:2}
+.events .main .t{font-family:var(--display);font-weight:700;font-size:clamp(20px,2.4vw,28px);line-height:1.35}
+.events .main .t small{display:block;font-family:var(--body);font-size:14px;color:var(--muted);font-weight:500}
+.ev{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ev .panel{display:flex;flex-direction:column;gap:12px;font-weight:600;font-size:17px}
+.ev .panel svg{width:40px;height:40px;fill:none;stroke:var(--paper);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ev .panel:hover svg{stroke:var(--accent)}
+
+/* ===== commerce ===== */
+.tickets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.ticket{position:relative;border-radius:16px;background:var(--glass);border:1px solid var(--line);min-width:0;display:flex;flex-direction:column}
+.ticket .top{padding:16px 18px 14px;border-bottom:2px dashed rgba(158,168,218,.35);position:relative}
+.ticket .top::before,.ticket .top::after{content:"";position:absolute;bottom:-11px;width:20px;height:20px;border-radius:50%;background:var(--ink)}
+.ticket .top::before{inset-inline-start:-11px}.ticket .top::after{inset-inline-end:-11px}
+.ticket .top small{font-family:var(--display);color:var(--accent);font-weight:700;letter-spacing:.08em;font-size:13px}
+.ticket .top h3{margin-top:4px}
+.ticket ul{padding:16px 18px 18px;font-size:15px}
+.ticket:nth-child(1){background:linear-gradient(180deg,rgba(123,137,255,.18),var(--glass) 60%)}
+@keyframes tear{from{opacity:0;transform:translateY(-40px) rotate(-6deg)}to{opacity:1;transform:none}}
+.on .ticket{animation:tear .8s cubic-bezier(.2,.8,.3,1.1) both;animation-delay:calc(var(--i)*140ms + 200ms)}
+.principle{margin-top:20px;display:flex;align-items:center;gap:14px;padding:14px 20px;border-radius:14px;border:1px solid rgba(123,137,255,.35);background:rgba(123,137,255,.07);font-weight:500}
+.principle b{font-family:var(--display);color:var(--accent);flex:0 0 auto}
+
+/* ===== platform ===== */
+.platform .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.dash{border-radius:22px;padding:20px;background:linear-gradient(180deg,rgba(10,26,96,.8),rgba(2,10,43,.9));border:1px solid rgba(6,22,196,.6);box-shadow:0 30px 70px rgba(0,0,0,.4);display:grid;gap:16px;min-width:0}
+.dash .who{display:flex;align-items:center;gap:12px}
+.dash .av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--violet));display:grid;place-items:center;font-family:var(--display);font-weight:800}
+.dash .pts{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;padding:16px;border-radius:16px;background:rgba(255,255,255,.05)}
+.dash .pts .num{font-family:var(--display);font-weight:800;font-size:clamp(40px,5vw,56px);line-height:1;font-variant-numeric:tabular-nums}
+.bar{height:10px;border-radius:5px;background:rgba(255,255,255,.08);overflow:hidden}
+.bar i{display:block;height:100%;width:var(--w);border-radius:5px;background:linear-gradient(90deg,var(--blue),var(--violet))}
+@keyframes grow{from{width:0}}
+.on .bar i{animation:grow 1.6s cubic-bezier(.2,.7,.2,1) both .5s}
+.log{display:grid;gap:8px}
+.log div{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);font-size:14px;font-weight:500}
+.log div b{font-family:var(--display);font-variant-numeric:tabular-nums;color:#7CF0B0}
+.log div.bad{background:rgba(246,199,68,.08);border:1px solid rgba(246,199,68,.3)}
+.log div.bad b{color:#F6C744}
+.ycard{display:inline-block;width:12px;height:16px;border-radius:2px;background:#F6C744;vertical-align:-3px;margin-inline-end:6px}
+.funcs{display:grid;gap:12px;margin-top:10px}
+.funcs .panel{display:flex;gap:14px;align-items:center;font-weight:600;font-size:17px}
+.funcs .ic{flex:0 0 42px;height:42px;border-radius:12px;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:20px;background:rgba(6,22,196,.35)}
+.funcs .ic.r{background:rgba(246,199,68,.14);color:#F6C744}
+.funcs .ic.g{background:rgba(124,240,176,.14);color:#7CF0B0}
+
+/* ===== voice ===== */
+.voice .top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(18px,3vw,40px);align-items:center}
+.pod{position:relative;border-radius:22px;padding:22px;background:linear-gradient(135deg,rgba(128,66,235,.45),rgba(6,22,196,.4));border:1px solid rgba(128,66,235,.6);overflow:hidden;min-width:0}
+.pod .row{display:flex;align-items:center;gap:14px}
+.mic{flex:0 0 56px;height:56px;border-radius:50%;background:var(--blue);display:grid;place-items:center;box-shadow:0 0 0 0 rgba(123,137,255,.6);animation:micp 2s infinite}
+@keyframes micp{0%{box-shadow:0 0 0 0 rgba(123,137,255,.6)}100%{box-shadow:0 0 0 22px rgba(123,137,255,0)}}
+.mic svg{width:26px;height:26px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round}
+.pod h3{font-size:clamp(22px,2.6vw,30px)}
+.eq{display:flex;align-items:center;gap:4px;height:54px;margin-top:16px}
+.eq i{flex:1;background:rgba(238,241,255,.85);border-radius:3px;height:20%;animation:eq 1.1s ease-in-out infinite;animation-delay:calc(var(--k)*-73ms)}
+.eq i:nth-child(3n){animation-duration:.8s}.eq i:nth-child(4n){animation-duration:1.4s}
+@keyframes eq{0%,100%{height:15%}50%{height:100%}}
+.formats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.formats div{padding:12px 14px;border-radius:14px;background:var(--glass);border:1px solid var(--line);min-width:0}
+.formats b{display:block;font-family:var(--display);font-size:16px;margin-bottom:2px}
+.formats span{font-size:13.5px;color:var(--muted);line-height:1.5;display:block}
+.voice .bottom{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(14px,2vw,24px);margin-top:18px}
+.poll{display:grid;gap:8px;margin-top:12px}
+.poll div{display:grid;grid-template-columns:70px minmax(0,1fr) 40px;gap:10px;align-items:center;font-size:13px;font-variant-numeric:tabular-nums}
+.poll .bar i{background:linear-gradient(90deg,var(--accent),#A9B3FF)}
+
+/* ===== identity ===== */
+.identity .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.kit{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:clamp(10px,2vw,26px);min-height:300px}
+.shirt{width:min(46%,210px);filter:drop-shadow(0 20px 40px rgba(0,0,0,.45))}
+.flag{position:relative;width:min(50%,250px);height:280px;display:flex;flex-direction:column}
+.flag .pole{position:absolute;inset-inline-end:0;top:0;bottom:0;width:5px;border-radius:3px;background:linear-gradient(180deg,#ddd,#777)}
+.flag .cloth{display:flex;height:150px;margin-inline-end:5px;border-radius:2px;overflow:hidden}
+.flag .marks{position:absolute;top:0;inset-inline:0 5px;height:150px;display:flex;align-items:center;justify-content:center;gap:12px;padding:10px;animation:flagm 1.8s ease-in-out infinite;pointer-events:none}
+.flag .marks .fa{height:78%;width:auto}
+.flag .marks .fd{width:52%;height:auto}
+@keyframes flagm{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+.flag .cloth i{flex:1;background:linear-gradient(180deg,#3B4BFF,var(--accent) 50%,#0B1570);animation:flagw 1.8s ease-in-out infinite;animation-delay:calc(var(--k)*-110ms)}
+@keyframes flagw{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(8px) scaleY(.94)}}
+.idlist{display:grid;gap:14px;margin-top:8px}
+.idlist .panel{display:flex;align-items:center;gap:16px}
+.idlist .panel .sw{flex:0 0 auto;display:flex;gap:4px}
+.idlist .panel .sw i{width:18px;height:18px;border-radius:50%}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips span{padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line);font-weight:600}
+
+/* ===== relation ===== */
+.relation .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.orbit{width:100%;max-width:440px;justify-self:center}
+.orbit .flow{fill:none;stroke:rgba(158,168,218,.3);stroke-width:2;stroke-dasharray:6 8}
+.orbit .dot{animation:none}
+.rel-list{display:grid;gap:14px}
+.rel-list .panel h3{margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.rel-list .panel h3 i{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-style:normal;font-size:15px;background:rgba(6,22,196,.45)}
+.rel-list .panel p{color:var(--muted)}
+.rel-list .panel p strong{color:var(--paper);font-weight:700}
+
+/* ===== governance ===== */
+.gov .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:center}
+.org{display:grid;justify-items:center;gap:22px;position:relative}
+.org .node{padding:12px 22px;border-radius:14px;font-family:var(--display);font-weight:700;background:var(--glass);border:1px solid var(--line);text-align:center}
+.org .node.pres{background:linear-gradient(135deg,var(--blue),#0B1570);border-color:transparent;font-size:20px;padding:14px 30px}
+.org .council{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.org .council i{width:46px;height:46px;border-radius:50%;background:rgba(6,22,196,.45);border:2px solid var(--blue)}
+.org .members{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:360px}
+.org .members i{width:16px;height:16px;border-radius:50%;background:rgba(238,241,255,.35)}
+.org .conn{width:2px;height:22px;background:linear-gradient(180deg,var(--accent),var(--blue));margin-block:-22px}
+.ballot{position:relative;width:170px;height:190px;justify-self:center}
+.ballot .box{position:absolute;bottom:0;left:0;right:0;height:110px;border-radius:12px;background:linear-gradient(180deg,var(--blue),var(--ocean));border:2px solid rgba(238,241,255,.25)}
+.ballot .box::before{content:"";position:absolute;top:-4px;left:30%;right:30%;height:8px;border-radius:4px;background:var(--ink)}
+.ballot .box span{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:18px}
+.ballot .v{position:absolute;left:50%;top:0;width:52px;height:34px;margin-left:-26px;border-radius:5px;background:#fff;animation:vote 2.4s ease-in infinite;z-index:-1}
+.ballot .v::after{content:"";position:absolute;left:18px;top:8px;width:12px;height:7px;border-left:3px solid var(--accent);border-bottom:3px solid var(--accent);transform:rotate(-45deg)}
+.ballot .v:nth-child(2){animation-delay:-.8s}.ballot .v:nth-child(3){animation-delay:-1.6s}
+@keyframes vote{0%{transform:translateY(-30px);opacity:0}20%{opacity:1}70%{transform:translateY(80px);opacity:1}80%,100%{transform:translateY(90px);opacity:0}}
+.gov-points{display:grid;gap:14px;margin-top:10px}
+.gov-points .panel{display:flex;align-items:center;gap:14px;font-weight:600;font-size:18px}
+.gov-points .panel b{font-family:var(--display);font-size:30px;color:var(--accent);min-width:44px;text-align:center}
+
+/* ===== closing ===== */
+.closing .wrap{display:grid;justify-items:center;text-align:center;gap:34px}
+.logos{display:flex;align-items:center;justify-content:center;gap:clamp(20px,5vw,70px);flex-wrap:wrap}
+.logos img{display:block}
+.logos .ahli{width:clamp(120px,18vw,200px);height:auto;filter:drop-shadow(0 20px 40px rgba(123,137,255,.35))}
+.logos .dom{width:clamp(200px,32vw,380px);height:auto}
+.logos .x{font-family:var(--display);font-size:36px;color:var(--muted)}
+@keyframes fromR{from{opacity:0;transform:translateX(120px) scale(.8)}to{opacity:1;transform:none}}
+@keyframes fromL{from{opacity:0;transform:translateX(-120px) scale(.8)}to{opacity:1;transform:none}}
+.on .logos .ahli{animation:fromR 1.1s cubic-bezier(.2,.7,.2,1) both .2s}
+.on .logos .dom{animation:fromL 1.1s cubic-bezier(.2,.7,.2,1) both .2s}
+.on .logos .x{animation:pop .6s both 1s}
+.closing h2{font-size:clamp(30px,5vw,60px);margin:0}
+.glow{position:absolute;width:60vmax;height:60vmax;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(6,22,196,.45),transparent 60%);z-index:-1;animation:breathe 6s ease-in-out infinite;pointer-events:none}
+@keyframes breathe{50%{transform:translate(-50%,-50%) scale(1.15)}}
+
+
+/* ===== league chips ===== */
+.lg{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:13px;padding:5px 14px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 60%,transparent);background:color-mix(in srgb,var(--c) 16%,transparent)}
+.lg::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c)}
+/* ===== structure ===== */
+.struct .wrap{display:grid;justify-items:center;text-align:center}
+.struct h2{margin-bottom:18px}
+.root{display:flex;align-items:center;gap:14px;padding:12px 22px 12px 26px;border-radius:18px;background:linear-gradient(135deg,rgba(6,22,196,.55),rgba(128,66,235,.35));border:1px solid rgba(128,66,235,.6);text-align:start}
+.root b{display:block;font-family:var(--display);font-size:clamp(22px,2.6vw,30px);line-height:1.2}
+.root small{color:var(--muted);font-size:14px}
+.branch{width:min(100%,900px);height:48px;overflow:visible}
+.branch path{fill:none;stroke:rgba(238,241,255,.45);stroke-width:2}
+.leagues{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,22px);width:100%;max-width:900px}
+.lcard{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:18px;text-align:start;background:linear-gradient(160deg,color-mix(in srgb,var(--c) 30%,transparent),var(--glass) 70%);border:1px solid color-mix(in srgb,var(--c) 55%,transparent);border-top:4px solid var(--c);min-width:0}
+.lcard svg{flex:0 0 auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.4))}
+.lcard small{color:var(--muted);font-size:12.5px;display:block}
+.lcard b{display:block;font-family:var(--display);font-size:clamp(20px,2.2vw,26px);line-height:1.25}
+.lcard span{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+.lcard span i{width:10px;height:10px;border-radius:50%;background:var(--c)}
+.shared{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px;max-width:980px}
+.shared div{padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);font-weight:600;font-size:15px}
+/* ===== inter-league ===== */
+.ihead{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-block:10px 8px}
+.ihead h2{margin:0}
+.igrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(14px,2vw,24px);margin-top:20px}
+.league-table{border-radius:20px;padding:22px;background:linear-gradient(160deg,rgba(123,137,255,.14),var(--glass) 60%);border:1px solid rgba(123,137,255,.4);display:grid;gap:14px;min-width:0}
+.lt-head{display:flex;align-items:center;gap:12px}
+.lt-head svg{width:34px;height:34px;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.lt-head h3{font-size:clamp(22px,2.4vw,28px)}
+.race{display:grid;gap:12px;margin-top:4px}
+.race>div{display:grid;grid-template-columns:64px minmax(0,1fr);gap:10px;align-items:center;font-family:var(--display);font-weight:600}
+.track{height:14px;border-radius:7px;background:rgba(255,255,255,.07);overflow:hidden}
+.track i{display:block;height:100%;border-radius:7px;background:linear-gradient(90deg,var(--blue),var(--accent))}
+.track .r1{animation:r1 7s ease-in-out infinite}.track .r2{animation:r2 7s ease-in-out infinite}.track .r3{animation:r3 7s ease-in-out infinite}
+@keyframes r1{0%,100%{width:62%}33%{width:88%}66%{width:70%}}
+@keyframes r2{0%,100%{width:84%}33%{width:66%}66%{width:92%}}
+@keyframes r3{0%,100%{width:72%}33%{width:80%}66%{width:60%}}
+.ideas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ideas .panel h3{margin-bottom:6px}
+.ideas .panel p{font-size:15px}
+/* ===== identity 3 ===== */
+.kit3{display:flex;align-items:flex-end;justify-content:center;gap:clamp(4px,1.5vw,16px);min-height:260px}
+.kit3 .shirt.mid{width:min(40%,220px)}
+.kit3 .shirt.side{width:min(29%,150px);opacity:.92}
+.badges3{display:flex;gap:14px;margin-bottom:18px}
+.badges3 svg{filter:drop-shadow(0 8px 18px rgba(0,0,0,.45))}
+/* ===== governance 3 ===== */
+.pres3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;position:relative;padding-top:24px}
+.pres3::before{content:"";position:absolute;top:0;left:16%;right:16%;height:12px;border:2px solid rgba(238,241,255,.35);border-bottom:0;border-radius:6px 6px 0 0}
+.pres3 .col{display:grid;justify-items:center;gap:10px;padding:14px 12px;border-radius:16px;background:var(--glass);border:1px solid color-mix(in srgb,var(--c) 50%,transparent);min-width:92px}
+.pres3 .p{font-family:var(--display);font-weight:700;padding:6px 14px;border-radius:10px;background:var(--c);color:#fff}
+.pres3 .cn{display:flex;gap:5px}
+.pres3 .cn i{width:18px;height:18px;border-radius:50%;border:2px solid var(--accent);background:rgba(123,137,255,.2)}
+.pres3 small{font-family:var(--display);font-weight:600;color:var(--muted)}
+/* ===== closing clubs ===== */
+.closing .dom{width:clamp(220px,34vw,400px);height:auto}
+.clubs{display:flex;gap:clamp(14px,3vw,34px);justify-content:center;flex-wrap:wrap}
+.clubs figure{margin:0;display:grid;gap:10px;justify-items:center}
+.clubs img{width:clamp(92px,13vw,150px);height:auto;aspect-ratio:1;border-radius:22px;display:block;box-shadow:0 0 0 3px var(--c),0 20px 40px rgba(0,0,0,.45)}
+.clubs figcaption{font-family:var(--display);font-weight:700;font-size:16px}
+@media (max-width:900px){
+  .leagues,.igrid{grid-template-columns:minmax(0,1fr)}
+  .branch{display:none}
+  .root{margin-bottom:16px}
+}
+@media (max-width:560px){.ideas{grid-template-columns:minmax(0,1fr)}.kit3{min-height:190px}}
+
+
+/* ===== structure v2 ===== */
+.struct .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center}
+.struct h2{margin-bottom:22px}
+.root{display:inline-flex;align-items:center;gap:14px;padding:12px 24px 12px 20px;border-radius:18px;background:linear-gradient(135deg,rgba(6,22,196,.55),rgba(2,10,43,.4));border:1px solid rgba(123,137,255,.45)}
+.root b{display:block;font-family:var(--display);font-size:clamp(22px,2.6vw,30px);line-height:1.2}
+.root small{color:var(--muted);font-size:14px}
+.spine{position:relative;display:grid;gap:12px;margin-top:14px;margin-inline-start:34px;padding-inline-start:30px}
+.spine::before{content:"";position:absolute;inset-inline-start:0;top:-14px;bottom:36px;width:2px;background:rgba(238,241,255,.18)}
+.spine::after{content:"";position:absolute;inset-inline-start:0;top:-14px;width:2px;height:0;background:var(--accent)}
+.on .spine::after{animation:spinev 1.2s ease both .3s}
+@keyframes spinev{to{height:calc(100% - 22px)}}
+.lcard{position:relative;display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:16px;background:var(--glass);border:1px solid var(--line);min-width:0}
+.lcard::before{content:"";position:absolute;inset-inline-start:-30px;top:50%;width:30px;height:2px;background:rgba(238,241,255,.28)}
+.lcard small{color:var(--muted);font-size:12.5px;display:block}
+.lcard b{display:block;font-family:var(--display);font-size:clamp(19px,2vw,24px);line-height:1.25}
+.lcard .dot{margin-inline-start:auto;width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 22%,transparent)}
+.facts{display:grid;gap:14px}
+.fact{position:relative;display:flex;align-items:center;gap:16px;padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.035);overflow:hidden;font-weight:600;font-size:clamp(16px,1.5vw,18px)}
+.fact::after{content:"";position:absolute;bottom:0;inset-inline-start:0;height:2px;width:100%;background:linear-gradient(90deg,var(--blue),var(--accent));transform-origin:right}
+.fi{flex:0 0 42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(6,22,196,.45)}
+.fi svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@keyframes factIn{from{opacity:0;transform:translateX(-70px)}to{opacity:1;transform:none}}
+@keyframes lineGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes iconPop{0%{transform:scale(0) rotate(-40deg)}70%{transform:scale(1.15)}100%{transform:none}}
+.on .fact{animation:factIn .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i)*380ms + 500ms)}
+.on .fact::after{animation:lineGrow .8s ease both;animation-delay:calc(var(--i)*380ms + 850ms)}
+.on .fact .fi{animation:iconPop .5s cubic-bezier(.3,.8,.3,1.3) both;animation-delay:calc(var(--i)*380ms + 700ms)}
+/* ritual own */
+.own{display:inline-flex;align-items:center;gap:12px;margin-top:18px;padding:10px 18px 10px 14px;border-radius:14px;border:1px dashed rgba(123,137,255,.55);background:rgba(6,22,196,.2);font-weight:700}
+.own .fi{flex-basis:34px;height:34px}
+/* identity v2 */
+.idlist .panel{display:flex;align-items:center;gap:16px}
+.idlist .panel svg{flex:0 0 auto}
+/* closing v2 */
+.closing .wrap{gap:22px}
+.closing .dom{width:clamp(180px,24vw,280px);height:auto}
+.end-badge{width:clamp(150px,20vw,230px);height:auto;filter:drop-shadow(0 30px 60px rgba(6,22,196,.6))}
+.on .end-badge .shield{stroke-dasharray:760;animation:draw 2s ease both .3s}
+.on .end-badge .fillin{animation:fadeIn 1s ease both 1.1s}
+.on .end-badge .arc{stroke-dasharray:90;animation:draw 1s ease both 1.6s}
+.endline{font-family:var(--display);font-weight:600;font-size:clamp(18px,2.2vw,26px);color:var(--muted)}
+.halo{position:absolute;left:50%;top:50%;width:0;height:0;z-index:-1;pointer-events:none}
+.halo i{position:absolute;width:min(80vmin,620px);height:min(80vmin,620px);left:0;top:0;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(123,137,255,.25);animation:spin 26s linear infinite}
+.halo i::before{content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 16px var(--accent)}
+.halo i:nth-child(2){width:min(56vmin,440px);height:min(56vmin,440px);animation-duration:18s;animation-direction:reverse}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@media (max-width:900px){.struct .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* ===== navigation ===== */
+.progress{position:fixed;top:0;inset-inline:0;height:3px;z-index:30;background:rgba(255,255,255,.06)}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--violet));transition:width .5s ease}
+.navbar{position:fixed;z-index:40;inset-inline-start:50%;transform:translateX(50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:6px;padding:6px;border-radius:16px;background:rgba(2,10,43,.82);border:1px solid var(--line);backdrop-filter:blur(10px);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.navbar button{appearance:none;border:0;background:transparent;color:var(--paper);font:inherit;cursor:pointer;border-radius:11px;height:40px;min-width:40px;display:grid;place-items:center}
+.navbar button:hover{background:rgba(255,255,255,.08)}
+.navbar button:focus-visible,.navgrid button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.navbar svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#navToggle{display:flex;gap:10px;white-space:nowrap;padding-inline:14px;font-family:var(--display);font-weight:700;font-variant-numeric:tabular-nums;background:rgba(6,22,196,.4)}
+#navToggle .t{max-width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600;color:var(--muted)}
+.navpanel{position:fixed;z-index:39;inset-inline:16px;bottom:calc(76px + env(safe-area-inset-bottom,0px));margin-inline:auto;max-width:680px;padding:16px;border-radius:20px;background:rgba(2,10,43,.95);border:1px solid var(--line);backdrop-filter:blur(12px);box-shadow:0 20px 60px rgba(0,0,0,.55)}
+.navgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.navgrid button{appearance:none;text-align:start;font:inherit;color:var(--paper);cursor:pointer;display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:14px;font-weight:600}
+.navgrid button b{font-family:var(--display);color:var(--muted);font-variant-numeric:tabular-nums;font-size:13px}
+.navgrid button:hover{background:rgba(6,22,196,.3)}
+.navgrid button.cur{background:rgba(123,137,255,.18);border-color:rgba(123,137,255,.5)}
+.navgrid button.cur b{color:var(--accent)}
+
+/* ===== responsive ===== */
+@media (max-width:900px){
+  #deck{scroll-snap-type:y proximity}
+  .cover .wrap,.charter .wrap,.member .wrap,.eleague .wrap,.platform .wrap,.identity .wrap,.relation .wrap,.gov .wrap,.voice .top,.voice .bottom{grid-template-columns:minmax(0,1fr)}
+  .badge-hero{width:min(60%,230px);order:-1}
+  .tickets{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ev{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .trio{grid-template-columns:minmax(0,1fr)}
+  .path4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .formats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .eleague .phone{order:-1;width:min(62%,220px)}
+  .seal{inset-inline-end:6px;width:78px;height:78px;font-size:11px}
+}
+@media (max-width:560px){
+  .trio,.values,.content-list,.tickets,.ev,.formats{grid-template-columns:minmax(0,1fr)}
+  .events .main{grid-template-columns:minmax(0,1fr)}
+  .events .main svg{display:none}
+  #navToggle .t{display:none}
+  .kit{min-height:230px}
+  .flag{height:210px}
+  .flag .cloth,.flag .marks{height:120px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  #deck{scroll-behavior:auto}
+}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gNavy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A1F8F"/><stop offset="1" stop-color="#020A2B"/></linearGradient>
+    <clipPath id="cShield"><path d="M100 8C130 22 160 18 188 12V120C188 175 145 205 100 224C55 205 12 175 12 120V12C40 18 70 22 100 8Z"/></clipPath>
+    <symbol id="b-master" viewBox="0 0 200 232">
+      <path d="M100 8C130 22 160 18 188 12V120C188 175 145 205 100 224C55 205 12 175 12 120V12C40 18 70 22 100 8Z" fill="url(#gNavy)"/>
+      <g clip-path="url(#cShield)"><rect x="0" y="0" width="200" height="62" fill="#0616C4"/><rect x="0" y="62" width="200" height="6" fill="#F4F4F4"/></g>
+      <text x="100" y="48" text-anchor="middle" font-family="Changa, Tajawal, sans-serif" font-weight="800" font-size="26" fill="#fff" style="paint-order:stroke" stroke="rgba(0,0,0,.18)" stroke-width="2">الرابطة</text>
+      <path d="M72 100A28 28 0 0 0 128 100M72 164A28 28 0 0 1 128 164" fill="none" stroke="#fff" stroke-width="13"/>
+      <path d="M100 8C130 22 160 18 188 12V120C188 175 145 205 100 224C55 205 12 175 12 120V12C40 18 70 22 100 8Z" fill="none" stroke="#D6AE4E" stroke-width="6"/>
+    </symbol>
+<symbol id="b-ahli" viewBox="0 0 200 232">
+      <path d="M100 8C130 22 160 18 188 12V120C188 175 145 205 100 224C55 205 12 175 12 120V12C40 18 70 22 100 8Z" fill="url(#gNavy)"/>
+      <g clip-path="url(#cShield)"><rect x="0" y="0" width="200" height="62" fill="#E1252C"/><rect x="0" y="62" width="200" height="6" fill="#F4F4F4"/></g>
+      <text x="100" y="48" text-anchor="middle" font-family="Changa, Tajawal, sans-serif" font-weight="800" font-size="26" fill="#fff" style="paint-order:stroke" stroke="rgba(0,0,0,.18)" stroke-width="2">الأهلي</text>
+      <path d="M72 100A28 28 0 0 0 128 100M72 164A28 28 0 0 1 128 164" fill="none" stroke="#fff" stroke-width="13"/>
+      <path d="M100 8C130 22 160 18 188 12V120C188 175 145 205 100 224C55 205 12 175 12 120V12C40 18 70 22 100 8Z" fill="none" stroke="#D6AE4E" stroke-width="6"/>
+    </symbol>
+<symbol id="b-hur" viewBox="0 0 200 232">
+      <path d="M100 8C130 22 160 18 188 12V120C188 175 145 205 100 224C55 205 12 175 12 120V12C40 18 70 22 100 8Z" fill="url(#gNavy)"/>
+      <g clip-path="url(#cShield)"><rect x="0" y="0" width="200" height="62" fill="#1FA35B"/><rect x="0" y="62" width="200" height="6" fill="#F4F4F4"/></g>
+      <text x="100" y="48" text-anchor="middle" font-family="Changa, Tajawal, sans-serif" font-weight="800" font-size="26" fill="#fff" style="paint-order:stroke" stroke="rgba(0,0,0,.18)" stroke-width="2">الحرية</text>
+      <path d="M72 100A28 28 0 0 0 128 100M72 164A28 28 0 0 1 128 164" fill="none" stroke="#fff" stroke-width="13"/>
+      <path d="M100 8C130 22 160 18 188 12V120C188 175 145 205 100 224C55 205 12 175 12 120V12C40 18 70 22 100 8Z" fill="none" stroke="#D6AE4E" stroke-width="6"/>
+    </symbol>
+<symbol id="b-shb" viewBox="0 0 200 232">
+      <path d="M100 8C130 22 160 18 188 12V120C188 175 145 205 100 224C55 205 12 175 12 120V12C40 18 70 22 100 8Z" fill="url(#gNavy)"/>
+      <g clip-path="url(#cShield)"><rect x="0" y="0" width="200" height="62" fill="#2F86FF"/><rect x="0" y="62" width="200" height="6" fill="#F4F4F4"/></g>
+      <text x="100" y="48" text-anchor="middle" font-family="Changa, Tajawal, sans-serif" font-weight="800" font-size="24" fill="#fff" style="paint-order:stroke" stroke="rgba(0,0,0,.18)" stroke-width="2">الشبيبة</text>
+      <path d="M72 100A28 28 0 0 0 128 100M72 164A28 28 0 0 1 128 164" fill="none" stroke="#fff" stroke-width="13"/>
+      <path d="M100 8C130 22 160 18 188 12V120C188 175 145 205 100 224C55 205 12 175 12 120V12C40 18 70 22 100 8Z" fill="none" stroke="#D6AE4E" stroke-width="6"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="progress" aria-hidden="true"><i id="prog"></i></div>
+
+<main id="deck" dir="rtl" lang="ar">
+
+<!-- 1 cover -->
+<section class="slide cover" data-title="الغلاف">
+  <div class="beam b1"></div><div class="beam b2"></div>
+  <div class="crowd" id="crowd" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow rv"><b>Domains</b> الرابطة الأم لروابط المشجعين</div>
+      <h1 class="rv" style="--i:1;margin-top:18px">رابطة <span class="latin">Domains</span><span class="l2">مدرّجات مختلفة، <span>روح رياضية واحدة</span></span></h1>
+    </div>
+    <svg class="badge-hero" viewBox="0 0 200 232" role="img" aria-label="شارة رابطة Domains">
+      <g class="fillin">
+        <path d="M100 8C130 22 160 18 188 12V120C188 175 145 205 100 224C55 205 12 175 12 120V12C40 18 70 22 100 8Z" fill="url(#gNavy)"/>
+        <g clip-path="url(#cShield)"><rect x="0" y="0" width="200" height="62" fill="#0616C4"/><rect x="0" y="62" width="200" height="6" fill="#F4F4F4"/></g>
+        <text x="100" y="48" text-anchor="middle" font-family="Changa, Tajawal, sans-serif" font-weight="800" font-size="26" fill="#fff">الرابطة</text>
+      </g>
+      <path class="arc" d="M72 100A28 28 0 0 0 128 100" fill="none" stroke="#fff" stroke-width="13"/>
+      <path class="arc" d="M72 164A28 28 0 0 1 128 164" fill="none" stroke="#fff" stroke-width="13"/>
+      <path class="shield" d="M100 8C130 22 160 18 188 12V120C188 175 145 205 100 224C55 205 12 175 12 120V12C40 18 70 22 100 8Z" fill="none" stroke="#D6AE4E" stroke-width="6"/>
+    </svg>
+  </div>
+</section>
+
+<!-- 2 who -->
+<section class="slide who" data-title="من نحن">
+  <div class="rings" aria-hidden="true"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i><i style="--k:3"></i></div>
+  <div class="wrap">
+    <div class="eyebrow rv"><b>02</b> من نحن</div>
+    <h2 class="rv" style="--i:1">رابطة <span class="latin">Domains</span></h2>
+    <div class="trio">
+      <div class="panel pp" style="--i:2"><span class="ico">01</span><h3>من نحن</h3><p>رابطة وُلدت من مجتمع Domains الشبابي، تحمل ثقافة التشجيع الحضاري والروح الرياضية إلى المدرّجات، وتحتضن روابط مشجعي أندية حلب تحت ميثاق وقيم ودستور واحد.</p></div>
+      <div class="panel pp" style="--i:4"><span class="ico">02</span><h3>الرؤية</h3><p>مدرّجات تجمع ولا تفرّق، وجمهور رياضي منظّم ومسؤول ومؤثر، يتنافس بروح رياضية ويصنع الفرق في مجتمعه.</p></div>
+      <div class="panel pp" style="--i:6"><span class="ico">03</span><h3>الرسالة</h3><p>بناء جمهور واعٍ يجمع بين الانتماء للنادي والقيم الإنسانية، عبر حضور رقمي راقٍ، وتشجيع حضاري، وأنشطة تُشرك الشباب وتصنع منهم قادة.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 structure -->
+<section class="slide struct" data-title="الهيكل">
+  <div class="wrap">
+    <div class="stree">
+      <div class="eyebrow rv"><b>03</b> الهيكل</div>
+      <h2 class="rv" style="--i:1">رابطة أم، وروابط منبثقة منها</h2>
+      <div class="root pp" style="--i:1">
+        <svg width="58" height="68" aria-hidden="true"><use href="#b-master"/></svg>
+        <div><b>رابطة Domains</b><small>يقودها مجلس رؤساء الروابط</small></div>
+      </div>
+      <div class="spine">
+        <div class="lcard fl" style="--i:3;--c:var(--c-ahli)"><svg width="46" height="54" aria-hidden="true"><use href="#b-ahli"/></svg><div><small>رابطة مشجعي Domains</small><b>أهلي حلب</b></div><span class="dot"></span></div>
+        <div class="lcard fl" style="--i:4;--c:var(--c-hur)"><svg width="46" height="54" aria-hidden="true"><use href="#b-hur"/></svg><div><small>رابطة مشجعي Domains</small><b>الحرية</b></div><span class="dot"></span></div>
+        <div class="lcard fl" style="--i:5;--c:var(--c-shb)"><svg width="46" height="54" aria-hidden="true"><use href="#b-shb"/></svg><div><small>رابطة مشجعي Domains</small><b>الشبيبة</b></div><span class="dot"></span></div>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact" style="--i:0"><span class="fi"><svg viewBox="0 0 24 24"><path d="M7 3h10a2 2 0 0 1 2 2v14l-3-2-3 2-3-2-3 2V5a2 2 0 0 1 2-2z"/><path d="M9 8h6M9 12h6"/></svg></span><p>ميثاق ودستور وقيم واحدة لكل الروابط</p></div>
+      <div class="fact" style="--i:1"><span class="fi"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/><path d="M4 9h16"/></svg></span><p>شعار واحد، يتلوّن شريطه ويحمل اسم نادي كل رابطة</p></div>
+      <div class="fact" style="--i:2"><span class="fi"><svg viewBox="0 0 24 24"><path d="M4 18h16M5 18l-1-10 5 4 3-6 3 6 5-4-1 10"/></svg></span><p>لكل رابطة رئيسها وإدارتها</p></div>
+      <div class="fact" style="--i:3"><span class="fi"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></span><p>العضو ينتسب لرابطة واحدة</p></div>
+      <div class="fact" style="--i:4"><span class="fi"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span><p>الرابطة الأم حاضنة: تدعم الروابط وتنظم المسابقات بينها</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 charter -->
+<section class="slide charter" data-title="الميثاق">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow rv"><b>04</b> الميثاق</div>
+      <h2 class="rv" style="--i:1">دستور واحد لكل الروابط</h2>
+      <div class="rules">
+        <div class="rv" style="--i:2"><b>1</b><p>تعاهد بين المنتسبين على الالتزام بمجموعة قيم، وخاصة في أسلوب التشجيع</p></div>
+        <div class="rv" style="--i:3"><b>2</b><p>لا يجوز تجاوزه أو عدم احترامه أبداً</p></div>
+        <div class="rv" style="--i:4"><b>3</b><p>كل منتسب جديد يحفظه ويوقّع عليه ويؤدي القسم</p></div>
+      </div>
+    </div>
+    <div class="scroll rv" style="--i:2">
+      <div class="head"><h3>قيم مقترحة</h3><span class="tag">تُعتمد نهائياً في أول ورشة عمل لأعضاء الروابط</span></div>
+      <ol class="values">
+        <li class="fl" style="--i:1"><span>01</span>نشجّع فريقنا ولا نشتم أحداً</li>
+        <li class="fl" style="--i:2"><span>02</span>الخصم منافس لا عدو</li>
+        <li class="fl" style="--i:3"><span>03</span>نغادر المدرج أنظف مما وجدناه</li>
+        <li class="fl" style="--i:4"><span>04</span>النادي أكبر من الأشخاص والنتائج</li>
+        <li class="fl" style="--i:5"><span>05</span>الخسارة لا تُسقط الانتماء</li>
+        <li class="fl" style="--i:6"><span>06</span>صوتنا للإبداع لا للفوضى</li>
+        <li class="fl" style="--i:7"><span>07</span>سلامة الجمهور قبل الحماس</li>
+        <li class="fl" style="--i:8"><span>08</span>لا مكان للسياسة أو التعصب</li>
+        <li class="fl" style="--i:9"><span>09</span>العضو سفير للرابطة داخل الملعب وخارجه</li>
+        <li class="fl" style="--i:10"><span>10</span>نعطي لمدينتنا كما نعطي لنادينا</li>
+      </ol>
+      <div class="seal" aria-hidden="true">ميثاق<br>الرابطة</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 membership -->
+<section class="slide member" data-title="الانتساب">
+  <div class="wrap">
+    <div class="card3d pp" style="--i:1" aria-hidden="true">
+      <div class="in">
+        <div class="face front">
+          <div class="row"><svg width="40" height="46"><use href="#b-master"/></svg><small>بطاقة عضوية · رابطة Domains</small></div>
+          <div><small>رقم الانتساب</small><div class="no">0001</div></div>
+          <div class="stripe"></div>
+        </div>
+        <div class="face back">
+          <div class="row"><b style="font-family:var(--display)">حسابات العضو</b><svg width="30" height="35"><use href="#b-master"/></svg></div>
+          <div class="acc"><div><i></i>حساب على تطبيق Domains</div><div><i></i>حساب على منصة الرابطة</div></div>
+          <div class="stripe"></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow rv"><b>05</b> الانتساب</div>
+      <h2 class="rv" style="--i:1">متاح للجميع بعد 3 شروط</h2>
+      <div class="gets rv" style="--i:2">
+        <span class="tag hot">رابطة واحدة لكل عضو</span><span class="tag">بطاقة عضوية</span><span class="tag">رقم انتساب</span><span class="tag">حساب على تطبيق Domains</span><span class="tag">حساب على منصة الرابطة</span>
+      </div>
+      <div class="steps">
+        <div class="step rv" style="--i:3"><span class="n">1</span><div><h3>حضور الورشة التعريفية</h3><p class="muted">تتكرر دورياً: الرابطة وقيمها وميزاتها وشروط الانتساب، ونادي المنتسب وتاريخه وأهم ألقابه</p></div></div>
+        <div class="step rv" style="--i:5"><span class="n">2</span><div><h3>اجتياز الاختبار</h3><p class="muted">معلومات عن النادي الذي ينتسب لرابطته وتاريخه</p></div></div>
+        <div class="step rv" style="--i:7"><span class="n">3</span><div><h3>الميثاق والقسم</h3><p class="muted">حفظ الميثاق وتوقيعه وأداء القسم</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 ritual -->
+<section class="slide ritual" data-title="طقس القسم">
+  <div class="torch t1"></div><div class="torch t2"></div>
+  <div class="wrap">
+    <div class="eyebrow rv"><b>06</b> طقس التوقيع وأداء القسم</div>
+    <h2 class="rv" style="--i:1">مراسم خاصة بالرابطة</h2>
+    <p class="lead muted rv" style="--i:2">تُجمع بعد عدة ورشات تعريفية ليكون عدد المنتسبين الجدد كبيراً والحدث أقوى</p>
+    <div class="own rv" style="--i:3"><span class="fi"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></span>لكل رابطة أن تضيف طقوسها الخاصة إلى المراسم</div>
+    <div class="path4">
+      <div class="st pp" style="--i:2"><small>01</small>الورشة التعريفية</div>
+      <div class="st pp" style="--i:3"><small>02</small>اجتياز الاختبار</div>
+      <div class="st pp" style="--i:4"><small>03</small>حفظ الميثاق</div>
+      <div class="st final pp" style="--i:5"><small>04</small>التوقيع وأداء القسم</div>
+    </div>
+    <svg class="sig" viewBox="0 0 520 110" aria-hidden="true">
+      <line x1="40" y1="92" x2="480" y2="92"/>
+      <path class="dr" style="--len:900;--i:5" d="M70 70C90 30 110 20 118 40S100 90 130 72 170 20 186 44 196 80 222 60 250 30 262 52 280 78 312 50 336 30 352 56 366 76 392 58 420 40 446 62 470 50"/>
+    </svg>
+    <div class="transform rv" style="--i:8"><span class="muted">مشجع</span><span class="arrow"></span><span>عضو في الرابطة</span></div>
+  </div>
+</section>
+
+<!-- 7 e-league -->
+<section class="slide eleague" data-title="الحضور الإلكتروني">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow rv"><b>07</b> الحضور الإلكتروني</div>
+      <h2 class="rv" style="--i:1">حضور في كل منصات التواصل</h2>
+      <p class="lead rv" style="--i:2">إدارة راقية ومدروسة للصفحات، يديرها فريق عمل خاص بكل رابطة. محتوى فعلي، لا ضجيج إلكتروني.</p>
+      <div class="content-list">
+        <div class="panel rv" style="--i:3"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg>ريلات حماسية لتصوير اللاعبين</div>
+        <div class="panel rv" style="--i:4"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h16M9 4v16"/></svg>مونتاج فيديوهات النادي بأسلوب خاص وحماسي</div>
+        <div class="panel star rv" style="--i:5"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg>مسابقة كل دوري لأفضل ريل من صنع الأعضاء</div>
+        <div class="panel rv" style="--i:6"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>فيديوهات توعوية تنشر القيم والرسائل الإنسانية</div>
+        <div class="panel rv" style="--i:7"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>قصص نجاح اللاعبين والفنيين: نماذج قيادية للشباب</div>
+        <div class="panel rv" style="--i:8"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M5 5a10 10 0 0 0 0 14M19 5a10 10 0 0 1 0 14M8 8a5 5 0 0 0 0 8M16 8a5 5 0 0 1 0 8"/></svg>تغطية مباشرة من الملاعب وغرف الملابس</div>
+      </div>
+    </div>
+    <div class="phone pp" style="--i:1" aria-hidden="true">
+      <div class="screen">
+        <span class="live">LIVE</span>
+        <div class="feed">
+          <div class="reel"><span class="play"></span><div class="side"><i></i><i></i><i></i></div><b>هدف الليلة</b><small>ريل حماسي</small></div>
+          <div class="reel"><span class="play"></span><div class="side"><i></i><i></i><i></i></div><b>من غرفة الملابس</b><small>تغطية مباشرة</small></div>
+          <div class="reel"><span class="play"></span><div class="side"><i></i><i></i><i></i></div><b>قصة نجاح</b><small>من الملعب إلى الشباب</small></div>
+          <div class="reel"><span class="play"></span><div class="side"><i></i><i></i><i></i></div><b>المدرج النظيف</b><small>رسالة توعوية</small></div>
+          <div class="reel"><span class="play"></span><div class="side"><i></i><i></i><i></i></div><b>هدف الليلة</b><small>ريل حماسي</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 events -->
+<section class="slide events" data-title="الفعاليات">
+  <div class="wrap">
+    <div class="eyebrow rv"><b>08</b> الفعاليات والأنشطة</div>
+    <h2 class="rv" style="--i:1">في الملعب وخارجه</h2>
+    <div class="main rv" style="--i:2">
+      <svg viewBox="0 0 120 78" aria-hidden="true"><rect class="dr" style="--len:400" x="2" y="2" width="116" height="74" rx="3"/><line class="dr" style="--len:80;--i:2" x1="60" y1="2" x2="60" y2="76"/><circle class="dr" style="--len:80;--i:3" cx="60" cy="39" r="12"/><rect class="dr" style="--len:120;--i:4" x="2" y="22" width="18" height="34"/><rect class="dr" style="--len:120;--i:4" x="100" y="22" width="18" height="34"/></svg>
+      <div class="t"><small>الدور الرئيسي</small>التشجيع داخل الملعب بأسلوب راقٍ وحضاري</div>
+    </div>
+    <p class="muted rv" style="--i:3;margin-bottom:14px">وفعاليات دورية بالتعاون مع Domains:</p>
+    <div class="ev">
+      <div class="panel fl" style="--i:3"><svg viewBox="0 0 40 40"><path d="M20 34s-12-7.5-12-16a7 7 0 0 1 12-4.8A7 7 0 0 1 32 18c0 8.5-12 16-12 16z"/><path d="M20 14v10M15 19h10"/></svg>حفل تبرعات مرتبط بدوري معين</div>
+      <div class="panel fl" style="--i:4"><svg viewBox="0 0 40 40"><circle cx="20" cy="7" r="3"/><path d="M20 11v11h9l3 9M20 16h7"/><path d="M14 18a9 9 0 1 0 12 12"/></svg>فعالية لذوي الهمم في ملاعب النادي</div>
+      <div class="panel fl" style="--i:5"><svg viewBox="0 0 40 40"><path d="M12 6h16v8a8 8 0 0 1-16 0zM12 9H6a5 5 0 0 0 6 6M28 9h6a5 5 0 0 1-6 6M20 22v6M13 34h14M16 28h8v6h-8z"/></svg>مسابقات رياضية متنوعة ليوم واحد</div>
+      <div class="panel fl" style="--i:6"><svg viewBox="0 0 40 40"><path d="M15 30V8l18-4v22"/><circle cx="11" cy="30" r="4"/><circle cx="29" cy="26" r="4"/></svg>مسابقة أفضل الأهازيج واعتمادها</div>
+      <div class="panel fl" style="--i:7"><svg viewBox="0 0 40 40"><rect x="4" y="7" width="32" height="20" rx="2"/><path d="M14 33h12M20 27v6M17 13l7 4-7 4z"/></svg>سهرات مشاهدة جماعية، وخاصة المباريات الخارجية</div>
+      <div class="panel fl" style="--i:8"><svg viewBox="0 0 40 40"><rect x="6" y="6" width="28" height="24" rx="4"/><path d="M6 18h28M10 30v4M30 30v4"/><circle cx="12" cy="24" r="1.5"/><circle cx="28" cy="24" r="1.5"/></svg>رحلات منظمة للمباريات الخارجية</div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 inter-league -->
+<section class="slide inter" data-title="بين الروابط">
+  <div class="wrap">
+    <div class="eyebrow rv"><b>09</b> الفعاليات بين الروابط</div>
+    <div class="ihead rv" style="--i:1"><h2>تنافس بروح رياضية</h2><span class="tag hot">مقترحات</span></div>
+    <p class="lead muted rv" style="--i:2;margin-bottom:20px">رابطة Domains حاضنة الروابط: تنظّم المسابقات بينها وتدعمها</p>
+    <div class="igrid">
+      <div class="league-table pp" style="--i:2">
+        <div class="lt-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"/></svg><h3>دوري الروابط</h3></div>
+        <p class="muted">مسابقة موسمية لا تُحتسب فيها نتائج المباريات. النقاط من رقي التشجيع، ونظافة المدرج، وجودة المحتوى، والتطوع، وقلة المخالفات.</p>
+        <div class="race" aria-hidden="true">
+          <div><span>الأهلي</span><div class="track"><i class="r1"></i></div></div>
+          <div><span>الحرية</span><div class="track"><i class="r2"></i></div></div>
+          <div><span>الشبيبة</span><div class="track"><i class="r3"></i></div></div>
+        </div>
+      </div>
+      <div class="ideas">
+        <div class="panel fl" style="--i:3"><h3>جائزة الخصم النبيل</h3><p class="muted">كل رابطة تصوّت لأكثر رابطة منافسة احترمت خصمها</p></div>
+        <div class="panel fl" style="--i:4"><h3>ليلة القسم الموحدة</h3><p class="muted">حفل واحد لكل الروابط: كل رابطة بلونها، وقسم واحد</p></div>
+        <div class="panel fl" style="--i:5"><h3>ديربي بلا توتر</h3><p class="muted">فعالية مشتركة قبل كل مباراة بين ناديين: مباراة ودية بين المشجعين، صورة جماعية، مصافحة</p></div>
+        <div class="panel fl" style="--i:6"><h3>باب مفتوح</h3><p class="muted">روابط لأندية أو رياضات أخرى بنفس النظام</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 commerce -->
+<section class="slide commerce" data-title="النشاط التجاري">
+  <div class="wrap">
+    <div class="eyebrow rv"><b>10</b> النشاط التجاري</div>
+    <h2 class="rv" style="--i:1">4 مصادر لتمويل كل رابطة</h2>
+    <div class="tickets">
+      <div class="ticket" style="--i:0"><div class="top"><small>أ</small><h3>فعاليات بحضور مدفوع</h3></div>
+        <ul class="clean"><li>حفل نهاية الموسم وحفلات التتويج بتذاكر</li><li>سهرات مشاهدة مميزة للمباريات الكبرى: تذكرة رمزية تشمل الضيافة وأدوات التشجيع</li><li>لقاءات حصرية مع اللاعبين بعدد مقاعد محدود</li><li>مسابقات وأيام رياضية برسوم اشتراك للفرق</li></ul></div>
+      <div class="ticket" style="--i:1"><div class="top"><small>ب</small><h3>البيع أثناء المباريات</h3></div>
+        <ul class="clean"><li>أكشاك متنقلة أمام الملعب وفي المدرجات</li><li>أدوات التشجيع: أعلام، وشاحات، قبعات، طلاء وجه، أدوات صوت</li><li>مشروبات وأطعمة خفيفة في سهرات المشاهدة</li></ul></div>
+      <div class="ticket" style="--i:2"><div class="top"><small>ج</small><h3>منتجات الرابطة</h3></div>
+        <ul class="clean"><li>قمصان ولباس كل رابطة بلونها وإكسسواراتها</li><li>إصدارات محدودة مرقّمة للمباريات الكبرى والمناسبات</li><li>طلب مسبق عبر منصة الرابطة</li></ul></div>
+      <div class="ticket" style="--i:3"><div class="top"><small>د</small><h3>مصادر إضافية</h3></div>
+        <ul class="clean"><li>مزادات خيرية على قمصان موقّعة من اللاعبين</li><li>رعاية الفعاليات من شركات ومحلات محلية</li></ul></div>
+    </div>
+    <div class="principle rv" style="--i:6"><b>مبدأ مالي</b><span>لكل رابطة إيراداتها، تُعاد لتمويل أنشطتها ومبادراتها، بشفافية أمام أعضائها</span></div>
+  </div>
+</section>
+
+<!-- 11 platform -->
+<section class="slide platform" data-title="منصة الرابطة">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow rv"><b>11</b> منصة الرابطة</div>
+      <h2 class="rv" style="--i:1">الالتزام يُقاس</h2>
+      <div class="funcs">
+        <div class="panel rv" style="--i:2"><span class="ic">✓</span>تتابع التزام الأعضاء</div>
+        <div class="panel rv" style="--i:3"><span class="ic r">!</span>تسجّل المخالفات على من يخالف الميثاق</div>
+        <div class="panel rv" style="--i:4"><span class="ic g">+</span>تمنح النقاط لمن يشارك ويضيف قيمة للرابطة وأنشطتها</div>
+        <div class="panel rv" style="--i:5"><span class="ic">★</span>كل عضو يرى رصيده وسجله، والنقاط تتحول إلى مكافآت</div>
+      </div>
+    </div>
+    <div class="dash pp" style="--i:1" aria-hidden="true">
+      <div class="who"><span class="av">ع</span><div><b style="font-family:var(--display)">عضو الرابطة</b><div class="muted" style="font-size:13px">رقم الانتساب 0001</div></div></div>
+      <div class="pts"><div><div class="muted" style="font-size:13px">رصيد النقاط</div><div class="num" data-count="1240">1,240</div></div><span class="tag hot">ملتزم</span></div>
+      <div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span>المكافأة التالية</span><span class="muted">78%</span></div><div class="bar"><i style="--w:78%"></i></div></div>
+      <div class="log">
+        <div class="si" style="--i:4"><span>مشاركة في فعالية</span><b>+50</b></div>
+        <div class="si" style="--i:5"><span>ريل منشور للرابطة</span><b>+30</b></div>
+        <div class="bad si" style="--i:6"><span><i class="ycard"></i>مخالفة للميثاق</span><b>−40</b></div>
+        <div class="si" style="--i:7"><span>تطوع في سهرة مشاهدة</span><b>+40</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 voice -->
+<section class="slide voice" data-title="صوت الجمهور">
+  <div class="wrap">
+    <div class="eyebrow rv"><b>12</b> صوت الجمهور</div>
+    <h2 class="rv" style="--i:1">الجسر بين الجمهور واللاعبين والنادي</h2>
+    <div class="top">
+      <div class="pod pp" style="--i:1">
+        <div class="row"><span class="mic"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><div><div class="muted" style="font-size:13px">بودكاست</div><h3>على الدكّة</h3></div></div>
+        <p style="margin-top:10px">حوار عفوي مع لاعب أو مدرب بعيداً عن الأسئلة الرسمية، وأسئلته من الجمهور</p>
+        <div class="eq" id="eq" aria-hidden="true"></div>
+      </div>
+      <div class="formats">
+        <div class="fl" style="--i:2"><b>مشجّع × لاعب</b><span>عضو من الرابطة يحاور اللاعب</span></div>
+        <div class="fl" style="--i:3"><b>60 ثانية مع...</b><span>أسئلة سريعة بإيقاع الريلز</span></div>
+        <div class="fl" style="--i:4"><b>اللاعب يرد</b><span>يقرأ تعليقات الجمهور ويرد عليها</span></div>
+        <div class="fl" style="--i:5"><b>تحدّي الجمهور</b><span>تحديات يقترحها الأعضاء وينفذها اللاعبون</span></div>
+        <div class="fl" style="--i:6"><b>يوم مع لاعب</b><span>فلوغ: يومه، تدريبه، خلف الكواليس</span></div>
+        <div class="fl" style="--i:7"><b>سؤالكم للاعب</b><span>أسئلة الجمهور في لقاء مباشر</span></div>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="panel rv" style="--i:6">
+        <h3>تفاعل على الصفحات</h3>
+        <ul class="clean" style="margin-top:10px"><li>أسئلة واستبيانات دورية في الستوري والمنشورات</li><li>توقع نتيجة المباراة وتشكيلة الفريق</li><li>لاعب الشهر بتصويت الجمهور، والجائزة في لقاء مصوّر</li></ul>
+        <div class="poll" aria-hidden="true">
+          <div><span>اللاعب أ</span><div class="bar"><i style="--w:62%"></i></div><span>62%</span></div>
+          <div><span>اللاعب ب</span><div class="bar"><i style="--w:27%"></i></div><span>27%</span></div>
+          <div><span>اللاعب ج</span><div class="bar"><i style="--w:11%"></i></div><span>11%</span></div>
+        </div>
+      </div>
+      <div class="panel rv" style="--i:7">
+        <h3>التأثير في النادي</h3>
+        <ul class="clean" style="margin-top:10px"><li>باب مفتوح للاقتراحات</li><li>تصويت على قرارات معينة تؤثر في توجه النادي</li><li>جلسات دورية لنقل صوت الجمهور إلى إدارة النادي</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 identity -->
+<section class="slide identity" data-title="الهوية">
+  <div class="wrap">
+    <div class="kit3" aria-hidden="true">
+      <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="gS-ahli" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8343B"/><stop offset="1" stop-color="#9E1318"/></linearGradient><linearGradient id="gS-hur" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26B566"/><stop offset="1" stop-color="#10683A"/></linearGradient><linearGradient id="gS-shb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3D93FF"/><stop offset="1" stop-color="#1452B8"/></linearGradient></defs></svg>
+      <svg class="shirt pp side" style="--i:2" viewBox="0 0 200 200">
+        <path d="M70 18L40 28 8 60l24 26 16-12v110h104V74l16 12 24-26-32-32-30-10c-4 14-16 22-30 22S74 32 70 18z" fill="url(#gS-hur)" stroke="rgba(255,255,255,.3)" stroke-width="2"/>
+        <path d="M70 18c4 14 16 22 30 22s26-8 30-22" fill="none" stroke="#fff" stroke-width="5"/>
+        <use href="#b-master" x="110" y="58" width="30" height="35"/>
+        <text x="100" y="134" text-anchor="middle" font-family="Changa, sans-serif" font-weight="800" font-size="30" fill="#fff">0001</text>
+      </svg><svg class="shirt pp mid" style="--i:1" viewBox="0 0 200 200">
+        <path d="M70 18L40 28 8 60l24 26 16-12v110h104V74l16 12 24-26-32-32-30-10c-4 14-16 22-30 22S74 32 70 18z" fill="url(#gS-ahli)" stroke="rgba(255,255,255,.3)" stroke-width="2"/>
+        <path d="M70 18c4 14 16 22 30 22s26-8 30-22" fill="none" stroke="#fff" stroke-width="5"/>
+        <use href="#b-master" x="110" y="58" width="30" height="35"/>
+        <text x="100" y="134" text-anchor="middle" font-family="Changa, sans-serif" font-weight="800" font-size="30" fill="#fff">0001</text>
+      </svg><svg class="shirt pp side" style="--i:3" viewBox="0 0 200 200">
+        <path d="M70 18L40 28 8 60l24 26 16-12v110h104V74l16 12 24-26-32-32-30-10c-4 14-16 22-30 22S74 32 70 18z" fill="url(#gS-shb)" stroke="rgba(255,255,255,.3)" stroke-width="2"/>
+        <path d="M70 18c4 14 16 22 30 22s26-8 30-22" fill="none" stroke="#fff" stroke-width="5"/>
+        <use href="#b-master" x="110" y="58" width="30" height="35"/>
+        <text x="100" y="134" text-anchor="middle" font-family="Changa, sans-serif" font-weight="800" font-size="30" fill="#fff">0001</text>
+      </svg>
+    </div>
+    <div>
+      <div class="eyebrow rv"><b>13</b> الهوية</div>
+      <h2 class="rv" style="--i:1">هوية تجمع الروابط</h2>
+      <div class="idlist">
+        <div class="panel rv" style="--i:2"><svg width="40" height="46" aria-hidden="true"><use href="#b-master"/></svg><p>شعار واحد للرابطة الأم، يتلوّن شريطه ويحمل اسم نادي كل رابطة</p></div>
+        <div class="panel rv" style="--i:3"><span class="fi"><svg viewBox="0 0 24 24"><path d="M8 3L3 6l2 4 2-1v12h10V9l2 1 2-4-5-3c-1 2-2 3-4 3S9 5 8 3z"/></svg></span><p>لباس كل رابطة بلون ناديها، ويحمل شعار الرابطة الأم</p></div>
+        <div class="chips rv" style="--i:4"><span>لباس</span><span>أعلام</span><span>إكسسوارات</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 relation -->
+<section class="slide relation" data-title="العلاقة مع Domains">
+  <div class="wrap">
+    <svg class="orbit pp" style="--i:1" viewBox="0 0 440 300" aria-hidden="true">
+      <path id="fA" class="flow" d="M110 150C170 40 270 40 330 150"/>
+      <path id="fB" class="flow" d="M330 150C270 260 170 260 110 150"/>
+      <circle r="6" fill="#7B89FF"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#fA"/></animateMotion></circle>
+      <circle r="6" fill="#7B89FF"><animateMotion dur="2.6s" begin="-0.87s" repeatCount="indefinite"><mpath href="#fA"/></animateMotion></circle>
+      <circle r="6" fill="#7B89FF"><animateMotion dur="2.6s" begin="-1.73s" repeatCount="indefinite"><mpath href="#fA"/></animateMotion></circle>
+      <circle r="6" fill="#8042EB"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#fB"/></animateMotion></circle>
+      <circle r="6" fill="#8042EB"><animateMotion dur="2.6s" begin="-1.3s" repeatCount="indefinite"><mpath href="#fB"/></animateMotion></circle>
+      <circle cx="110" cy="150" r="62" fill="#0616C4"/>
+      <path d="M86 132A24 24 0 0 0 134 132M86 170A24 24 0 0 1 134 170" fill="none" stroke="#fff" stroke-width="11"/>
+      <circle cx="330" cy="150" r="62" fill="#00175A" stroke="rgba(238,241,255,.25)" stroke-width="2"/>
+      <use href="#b-master" x="300" y="115" width="60" height="70"/>
+      <text x="110" y="240" text-anchor="middle" font-family="Changa, sans-serif" font-weight="700" font-size="18" fill="#EEF1FF">Domains</text>
+      <text x="330" y="240" text-anchor="middle" font-family="Changa, Tajawal, sans-serif" font-weight="700" font-size="18" fill="#EEF1FF">الروابط</text>
+    </svg>
+    <div>
+      <div class="eyebrow rv"><b>14</b> العلاقة مع Domains</div>
+      <h2 class="rv" style="--i:1">دعم متبادل</h2>
+      <div class="rel-list">
+        <div class="panel rv" style="--i:2"><h3><i>1</i>تمثّل Domains</h3><p>لا تخرج عن قيم Domains وروحها التطوعية</p></div>
+        <div class="panel rv" style="--i:3"><h3><i>2</i>كلٌّ يدعم الآخر</h3><p>Domains تدعم الروابط والروابط تدعم Domains، وقد تصبح الرابطة <strong>مسؤولة عن تنظيم جميع فعاليات Domains الرياضية</strong></p></div>
+        <div class="panel rv" style="--i:4"><h3><i>3</i>الاستضافة</h3><p>Domains تستضيف في مراكزها الورشات التعريفية والتدريبات واجتماعات إدارات الروابط</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 governance -->
+<section class="slide gov" data-title="الإدارة">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow rv"><b>15</b> الإدارة</div>
+      <h2 class="rv" style="--i:1">إدارة منتخبة</h2>
+      <div class="gov-points">
+        <div class="panel rv" style="--i:2"><b>★</b>مجلس رؤساء الروابط يقود رابطة Domains</div>
+        <div class="panel rv" style="--i:3"><b>◆</b>لكل رابطة رئيس ومجلس إدارة مبسّط</div>
+        <div class="panel rv" style="--i:4"><b>✓</b>انتخابات سنوية بالتصويت</div>
+      </div>
+    </div>
+    <div style="display:grid;gap:30px;justify-items:center">
+      <div class="org" aria-hidden="true">
+        <div class="node pres pp" style="--i:1">مجلس رؤساء الروابط</div>
+        <div class="pres3">
+          <div class="col pp" style="--i:2;--c:var(--blue)"><span class="p">رئيس</span><div class="cn"><i></i><i></i><i></i></div><small>الأهلي</small></div>
+          <div class="col pp" style="--i:3;--c:var(--blue)"><span class="p">رئيس</span><div class="cn"><i></i><i></i><i></i></div><small>الحرية</small></div>
+          <div class="col pp" style="--i:4;--c:var(--blue)"><span class="p">رئيس</span><div class="cn"><i></i><i></i><i></i></div><small>الشبيبة</small></div>
+        </div>
+      </div>
+      <div class="ballot" aria-hidden="true"><span class="v"></span><span class="v"></span><span class="v"></span><div class="box"><span>تصويت</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 closing -->
+<section class="slide closing" data-title="الختام">
+  <div class="glow"></div>
+  <div class="halo" aria-hidden="true"><i></i><i></i></div>
+  <div class="wrap">
+    <img class="dom rv" src="assets/domains.webp" alt="شعار Domains">
+    <svg class="end-badge" viewBox="0 0 200 232" role="img" aria-label="شارة رابطة Domains">
+      <g class="fillin">
+        <path d="M100 8C130 22 160 18 188 12V120C188 175 145 205 100 224C55 205 12 175 12 120V12C40 18 70 22 100 8Z" fill="url(#gNavy)"/>
+        <g clip-path="url(#cShield)"><rect x="0" y="0" width="200" height="62" fill="#0616C4"/><rect x="0" y="62" width="200" height="6" fill="#F4F4F4"/></g>
+        <text x="100" y="48" text-anchor="middle" font-family="Changa, Tajawal, sans-serif" font-weight="800" font-size="26" fill="#fff">الرابطة</text>
+      </g>
+      <path class="arc" d="M72 100A28 28 0 0 0 128 100" fill="none" stroke="#fff" stroke-width="13"/>
+      <path class="arc" d="M72 164A28 28 0 0 1 128 164" fill="none" stroke="#fff" stroke-width="13"/>
+      <path class="shield" d="M100 8C130 22 160 18 188 12V120C188 175 145 205 100 224C55 205 12 175 12 120V12C40 18 70 22 100 8Z" fill="none" stroke="#D6AE4E" stroke-width="6"/>
+    </svg>
+    <h2 class="rv" style="--i:6">رابطة <span class="latin">Domains</span></h2>
+    <p class="endline rv" style="--i:8">مدرّجات مختلفة، روح رياضية واحدة</p>
+  </div>
+</section>
+
+</main>
+
+<nav aria-label="التنقل بين الشرائح" dir="rtl" lang="ar">
+  <div class="navpanel" id="navPanel" hidden><div class="navgrid" id="navGrid"></div></div>
+  <div class="navbar">
+    <button id="prev" aria-label="الشريحة السابقة"><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></button>
+    <button id="navToggle" aria-expanded="false" aria-controls="navPanel"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg><span id="cnt">01 / 16</span><span class="t" id="curT">الغلاف</span></button>
+    <button id="next" aria-label="الشريحة التالية"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+  </div>
+</nav>
+
+<script>
+(function(){
+  const deck=document.getElementById('deck');
+  const slides=[...deck.querySelectorAll('.slide')];
+  const pad=n=>String(n).padStart(2,'0');
+  const total=slides.length;
+  // fill decorative rows
+  const fill=(id,n,cls)=>{const el=document.getElementById(id);if(!el)return;let h='';for(let k=0;k<n;k++)h+=`<i style="--k:${k}"></i>`;el.innerHTML=h;};
+  fill('crowd',70);fill('eq',42);fill('cloth',14);fill('members',30);
+
+  const grid=document.getElementById('navGrid');
+  slides.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.innerHTML=`<b>${pad(i+1)}</b>${s.dataset.title}`;b.onclick=()=>{go(i);togglePanel(false)};grid.appendChild(b);});
+  const tiles=[...grid.children];
+  let cur=0;
+  function go(i){i=Math.max(0,Math.min(total-1,i));slides[i].scrollIntoView({behavior:'smooth',block:'start'});}
+  function setCur(i){cur=i;document.getElementById('cnt').textContent=`${pad(i+1)} / ${pad(total)}`;document.getElementById('curT').textContent=slides[i].dataset.title;document.getElementById('prog').style.width=((i+1)/total*100)+'%';tiles.forEach((t,k)=>t.classList.toggle('cur',k===i));}
+
+  // counters
+  function count(el){const to=+el.dataset.count;const t0=performance.now();const d=1600;const step=t=>{const p=Math.min(1,(t-t0)/d);const v=Math.round(to*(1-Math.pow(1-p,3)));el.textContent=v.toLocaleString('en-US');if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step);}
+
+  const ratios=new Map();
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      ratios.set(e.target,e.intersectionRatio);
+      if(e.isIntersecting&&e.intersectionRatio>.2){
+        if(!e.target.classList.contains('on')){e.target.classList.add('on');e.target.querySelectorAll('[data-count]').forEach(count);}
+      }else if(e.intersectionRatio===0){e.target.classList.remove('on');}
+    });
+    let best=0,bi=cur;slides.forEach((s,i)=>{const r=ratios.get(s)||0;if(r>best){best=r;bi=i}});setCur(bi);
+  },{root:deck,threshold:[0,.2,.4,.6,.8,1]});
+  slides.forEach(s=>io.observe(s));
+  slides[0].classList.add('on');setCur(0);
+
+  const panel=document.getElementById('navPanel'),tog=document.getElementById('navToggle');
+  function togglePanel(f){const open=f===undefined?panel.hidden:f;panel.hidden=!open;tog.setAttribute('aria-expanded',open);}
+  tog.onclick=()=>togglePanel();
+  document.getElementById('prev').onclick=()=>go(cur-1);
+  document.getElementById('next').onclick=()=>go(cur+1);
+  document.addEventListener('click',e=>{if(!panel.hidden&&!e.target.closest('nav'))togglePanel(false)});
+  document.addEventListener('keydown',e=>{
+    if(['ArrowDown','PageDown','ArrowLeft',' '].includes(e.key)){e.preventDefault();go(cur+1)}
+    else if(['ArrowUp','PageUp','ArrowRight'].includes(e.key)){e.preventDefault();go(cur-1)}
+    else if(e.key==='Home'){go(0)}else if(e.key==='End'){go(total-1)}
+    else if(e.key==='Escape'){togglePanel(false)}
+  });
+
+  // one wheel gesture = one slide on desktop
+  let lock=false;
+  deck.addEventListener('wheel',e=>{
+    if(window.innerWidth<=900)return;
+    const s=slides[cur];const tall=s.offsetHeight>deck.clientHeight+8;
+    if(tall){const top=s.offsetTop,bottom=top+s.offsetHeight-deck.clientHeight;const y=deck.scrollTop;if((e.deltaY>0&&y<bottom-4)||(e.deltaY<0&&y>top+4))return;}
+    e.preventDefault();if(lock||Math.abs(e.deltaY)<6)return;lock=true;go(cur+(e.deltaY>0?1:-1));setTimeout(()=>lock=false,850);
+  },{passive:false});
+})();
+</script>
+
+</body>
+</html>
